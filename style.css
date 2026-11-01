@@ -181,3 +181,40 @@ footer a{margin-right:18px}
 @media (max-width:780px){.sv,.two,.cgrid{grid-template-columns:1fr}.rec{display:none}nav .btn{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.w,.sub,.cta,.sv li{opacity:1;transform:none}.num{--n:var(--t)}}
 .grad{animation-delay:calc(var(--i)*90ms + 150ms),0s}
+
+/* ===== 5 ANIMATED BACKGROUND SCENES ===== */
+.scn{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.hs{opacity:0;animation:cyc 30s infinite;animation-delay:calc(var(--s)*6s)}
+@keyframes cyc{0%{opacity:0}3%,20%{opacity:1}23%,100%{opacity:0}}
+.bgp{opacity:.5;-webkit-mask-image:linear-gradient(#000 35%,transparent);mask-image:linear-gradient(#000 35%,transparent)}
+.ph>*:not(.scn){position:relative;z-index:1}
+.vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rec{width:290px;height:20px}
+.hl{position:absolute;right:0;white-space:nowrap;opacity:0;animation:cyc 30s infinite;animation-delay:calc(var(--s)*6s)}
+/* 1 aurora */
+.a1 i{position:absolute;width:60vmax;height:60vmax;border-radius:50%;filter:blur(90px);opacity:.5}
+.a1 i:nth-child(1){background:var(--blue);left:-15%;top:-30%;animation:d1 13s ease-in-out infinite alternate}
+.a1 i:nth-child(2){background:var(--vio);right:-20%;top:10%;animation:d2 17s ease-in-out infinite alternate}
+.a1 i:nth-child(3){background:var(--cyan);left:20%;bottom:-40%;animation:d3 15s ease-in-out infinite alternate}
+@keyframes d1{to{transform:translate(35vw,25vh) scale(1.25)}}
+@keyframes d2{to{transform:translate(-30vw,20vh) scale(.8)}}
+@keyframes d3{to{transform:translate(25vw,-25vh) scale(1.3)}}
+/* 2 editing timeline */
+.tr{position:absolute;left:0;display:flex;gap:10px;width:max-content;animation:slide var(--d) linear infinite}
+.tr b{display:block;width:var(--w);height:56px;border-radius:8px;background:var(--g);opacity:.6;border:1px solid rgba(255,255,255,.18)}
+/* 3 equalizer */
+.a3{display:flex;align-items:flex-end;gap:6px;padding:0 2vw}
+.a3 b{flex:1;height:calc(25% + var(--h)*1%);border-radius:6px 6px 0 0;background:linear-gradient(var(--cyan),var(--blue));opacity:.7;transform-origin:bottom;animation:eq var(--d) ease-in-out infinite alternate;animation-delay:calc(var(--k)*-.17s)}
+@keyframes eq{from{transform:scaleY(.1)}to{transform:scaleY(1)}}
+/* 4 pulse rings */
+.rg{position:absolute;left:68%;top:45%;width:12vmax;height:12vmax;border:2px solid var(--cyan);border-radius:50%;opacity:0;animation:rgo 7.2s linear infinite;animation-delay:calc(var(--k)*-1.2s)}
+@keyframes rgo{from{transform:translate(-50%,-50%) scale(.2);opacity:.9}to{transform:translate(-50%,-50%) scale(8);opacity:0}}
+.sq{position:absolute;left:68%;top:45%;width:26vmax;height:26vmax;margin:-13vmax 0 0 -13vmax;border:2px solid var(--vio);opacity:.6;animation:spin 22s linear infinite}
+.sq.r{width:16vmax;height:16vmax;margin:-8vmax 0 0 -8vmax;border-color:var(--blue);animation-direction:reverse;animation-duration:14s}
+/* 5 bokeh */
+.bk{position:absolute;bottom:-12%;left:calc(var(--x)*1%);width:var(--z);height:var(--z);border-radius:50%;background:radial-gradient(circle,rgba(34,211,238,.8),rgba(59,123,255,.25) 60%,transparent 70%);animation:rise var(--t) linear infinite;animation-delay:calc(var(--t)*var(--o)*-1)}
+@keyframes rise{to{transform:translateY(-125vh)}}
+/* video editing filter */
+#f-ve:checked~.chips [for=f-ve]{background:var(--blue);border-color:var(--blue);color:#fff}
+#f-ve:checked~.grid .card:not(.ve){display:none}
+@media (prefers-reduced-motion:reduce){.hs,.hl{opacity:0}.hs[style*="--s:0"],.hl[style*="--s:0"]{opacity:1}}
